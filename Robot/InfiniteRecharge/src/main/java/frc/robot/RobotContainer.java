@@ -3,10 +3,10 @@ package frc.robot;
 import java.util.logging.Logger;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
-
-import frc.robot.commands.*;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+// import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.XboxController;
+// import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 
 /**
@@ -22,15 +22,12 @@ public class RobotContainer {
   private static final Logger logger = Logger.getLogger(frc.robot.RobotContainer.class.getName());
 
   public final Joystick driverJoystick = new Joystick(Constants.kJoystickChannel);
+  public final XboxController Xbox = new XboxController(1);
 
   public final MecanumDriveSubsystem driveSubsystem = new MecanumDriveSubsystem();
-  public final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
-  public final ShooterSubsystem shooter = new ShooterSubsystem();
-  public final ClimberSubsystem Climber = new ClimberSubsystem();
-  public final LimelightSubsystem Limelight = new LimelightSubsystem();
   public final GyroSubsystem Gyro = new GyroSubsystem();
-  private int autonomous = 0;
-  private String autoString = "";
+  // private int autonomous = 0;
+  // private String autoString = "";
 
   /**`
    * Retrieves the single instance of RobotContainer
@@ -61,11 +58,11 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
 
-  public Command getAutonomousCommand() {
-    double throttle = JoystickControlSystem.getThrottle();
+  // public Command getAutonomousCommand() {
+  //   double throttle = JoystickControlSystem.getThrottle();
   // /** */  if(throttle <= -0.9){
   //     logger.info("returning Autonomous High");
-       return new AutonomousHigh(driveSubsystem);
+       //return new AutonomousHigh(driveSubsystem);
   //   }
   //   if(throttle < -0.1 && throttle > -0.9){
   //     logger.info("returning Autonomous Shoot Balls and PickUp");
@@ -80,7 +77,7 @@ public class RobotContainer {
   //   }
   //   return new AutonomousCommandTest(driveSubsystem);
   //   //return new AutonomousHigh(driveSubsystem);
-   }
+  // }
 
 
 

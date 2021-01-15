@@ -3,15 +3,17 @@ package frc.robot;
 import java.util.logging.Logger;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
+//import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj.XboxController;
 
-import frc.robot.commands.*;
+//import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 
 public class JoystickControlSystem {
   public static Joystick driverJoystick;
+  public static XboxController xbox;
 
   public static void initialize() {
     Logger logger = Logger.getLogger(frc.robot.JoystickControlSystem.class.getName());
@@ -20,6 +22,7 @@ public class JoystickControlSystem {
     driverJoystick = RobotContainer.getInstance().driverJoystick;
     MecanumDriveSubsystem driveSubsystem = RobotContainer.getInstance().driveSubsystem;
     GyroSubsystem Gyro = RobotContainer.getInstance().Gyro;
+    XboxController xbox = RobotContainer.getInstance().Xbox;
 
     logger.info("Mecanum drive subsystem defaulting to driveCartesian.");
     driveSubsystem.setDefaultCommand(new RunCommand(() -> driveSubsystem.driveCartesian(-driverJoystick.getX(),
@@ -40,12 +43,11 @@ public class JoystickControlSystem {
 
     // TODO: Move to the secondary driver control system
     // Binds button 5 to control Limelight LEDs
-    JoystickButton ledButton = new JoystickButton(driverJoystick, 5);
-    ledButton.whenPressed(new LimelightCommand(new LimelightSubsystem()));
-
-    logger.info("Driver button 2 bound to activate intake.");
-    JoystickButton intakeActivateButton = new JoystickButton(driverJoystick, 2);
-    intakeActivateButton.toggleWhenActive(new IntakeCommand());
+    //JoystickButton ledButton = new JoystickButton(driverJoystick, 5);
+    
+    // logger.info("Driver button 2 bound to activate intake.");
+    // JoystickButton intakeActivateButton = new JoystickButton(driverJoystick, 2);
+    //intakeActivateButton.toggleWhenActive(new IntakeCommand());
 
     // TODO: Move to the secondary driver control system
     // Shooter Button bindings
@@ -53,13 +55,13 @@ public class JoystickControlSystem {
     // JoystickButton shooterLoadButton = new JoystickButton(driverJoystick, 7);    
     // shooterLoadButton.whenPressed(new ShooterLoadCommand());
     
-    logger.info("Driver button 7 bound to spin shooter.");
-    JoystickButton activateMotorsButton = new JoystickButton(driverJoystick, 7);
-    activateMotorsButton.toggleWhenActive(new SpinShooterMotorsCommand());  
+    // logger.info("Driver button 7 bound to spin shooter.");
+    // JoystickButton activateMotorsButton = new JoystickButton(driverJoystick, 7);
+    //activateMotorsButton.toggleWhenActive(new SpinShooterMotorsCommand());  
     
-    logger.info("Driver button 8 bound to shoot.");
-    JoystickButton shootButton = new JoystickButton(driverJoystick, 8);    
-    shootButton.whenPressed(new ShootOneBallCommand());
+    // logger.info("Driver button 8 bound to shoot.");
+    // JoystickButton shootButton = new JoystickButton(driverJoystick, 8);    
+    //shootButton.whenPressed(new ShootOneBallCommand());
   }
 
   public static double getThrottle() {

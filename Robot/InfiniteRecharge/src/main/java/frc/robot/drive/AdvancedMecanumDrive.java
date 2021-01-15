@@ -1,7 +1,7 @@
 package frc.robot.drive;
 
 import java.util.StringJoiner;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
@@ -58,7 +58,7 @@ import edu.wpi.first.wpiutil.math.MathUtil;
  * deadband of 0 is used.
  */
 public class AdvancedMecanumDrive extends RobotDriveBase implements Sendable, AutoCloseable {
-  private final Logger logger = Logger.getLogger(this.getClass().getName());
+  //private final Logger logger = Logger.getLogger(this.getClass().getName());
   private static int instances;
 
   private final SpeedController m_frontLeftMotor;
