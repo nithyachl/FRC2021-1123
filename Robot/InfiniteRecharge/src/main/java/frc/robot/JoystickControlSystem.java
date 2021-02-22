@@ -52,6 +52,10 @@ public class JoystickControlSystem {
     // logger.info("Driver button 7 bound to load shooter.");
     // JoystickButton shooterLoadButton = new JoystickButton(driverJoystick, 7);    
     // shooterLoadButton.whenPressed(new ShooterLoadCommand());
+
+
+    JoystickButton colorSensorActivateButton = new JoystickButton(driverJoystick, 6);
+    colorSensorActivateButton.toggleWhenActive(new RGBSensorCommand(new RGBSensorSubsystem()));
     
     logger.info("Driver button 7 bound to spin shooter.");
     JoystickButton activateMotorsButton = new JoystickButton(driverJoystick, 7);
